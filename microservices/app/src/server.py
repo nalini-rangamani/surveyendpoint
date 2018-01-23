@@ -9,7 +9,7 @@ import json
 def get_articles_try():
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer ef8cbf8979094574f6704bb39b1633e53069c7ec8abc1585"
+        "Authorization": "Bearer d7311342c7ecbfaf056c4965205b134a3a5f59814378fa22"
     }
 
     query = {
@@ -29,7 +29,7 @@ def get_articles_try():
 
     headers2 = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer ef8cbf8979094574f6704bb39b1633e53069c7ec8abc1585"
+        "Authorization": "Bearer d7311342c7ecbfaf056c4965205b134a3a5f59814378fa22"
     }
 
     query2 = {
@@ -49,14 +49,16 @@ def get_articles_try():
 
     headers3 = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer ef8cbf8979094574f6704bb39b1633e53069c7ec8abc1585"
+        "Authorization": "Bearer d7311342c7ecbfaf056c4965205b134a3a5f59814378fa22"
     }
 
     query3 = {
         "type": "select",
         "args": {
             "table": "view_country_count",
-            "columns":[country,country_count]
+            "columns":[
+               "*"
+            ]
         }
     }
     dataUrl1= "https://data.course77.hasura-app.io/v1/query"
