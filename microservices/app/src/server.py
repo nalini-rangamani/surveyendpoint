@@ -1,13 +1,75 @@
 from src import app
-# from flask import jsonify
+from flask import Flask, request,redirect,send_file
+from flask import make_response
+from flask import render_template, jsonify
+import requests
+import json
 
+@app.route('/get_art')
+def get_articles_try():
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer ef8cbf8979094574f6704bb39b1633e53069c7ec8abc1585"
+    }
+
+    query = {
+        "type": "run_sql",
+        "args": {
+            "sql": "CREATE VIEW view_country_count AS SELECT country,COUNT(respondent) AS country_count FROM surveyresults GROUP BY country;"
+         }
+    }
+    dataUrl1= "https://data.course77.hasura-app.io/v1/query"
+    print(dataUrl1)
+    print(json.dumps(query))
+    response = requests.post(
+        dataUrl1, data=json.dumps(query), headers=headers
+    )
+    data1 = response.json()
+    print(json.dumps(data1))
+
+    headers2 = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer ef8cbf8979094574f6704bb39b1633e53069c7ec8abc1585"
+    }
+
+    query2 = {
+        "type": "add_existing_table_or_view",
+        "args": {
+            "name": "view_country_count"
+        }
+    }
+    dataUrl1= "https://data.course77.hasura-app.io/v1/query"
+    print(dataUrl1)
+    print(json.dumps(query2))
+    response = requests.post(
+        dataUrl1, data=json.dumps(query2), headers=headers2
+    )
+    data2 = response.json()
+    print(json.dumps(data2))
+
+    headers3 = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer ef8cbf8979094574f6704bb39b1633e53069c7ec8abc1585"
+    }
+
+    query3 = {
+        "type": "select",
+        "args": {
+            "table": "view_country_count",
+            "columns":[country,country_count]
+        }
+    }
+    dataUrl1= "https://data.course77.hasura-app.io/v1/query"
+    print(dataUrl1)
+    print(json.dumps(query3))
+    response = requests.post(
+        dataUrl1, data=json.dumps(query3), headers=headers3
+    )
+    data3 = response.json()
+    print(json.dumps(data3))
+    return jsonify(data=data3)
 
 @app.route("/")
 def home():
-    return "Hasura Hello World"
+    return "Hasura Hello World Nalini Suresh"
 
-# Uncomment to add a new URL at /new
-
-# @app.route("/json")
-# def json_message():
-#     return jsonify(message="Hello World")
