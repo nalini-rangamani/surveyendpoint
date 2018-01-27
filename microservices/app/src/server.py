@@ -15,7 +15,7 @@ def get_articles_try():
     query = {
         "type": "run_sql",
         "args": {
-            "sql": "CREATE VIEW view_country_count AS SELECT country,COUNT(respondent) AS country_count FROM surveyresults GROUP BY country ORDER BY country;"
+            "sql": "CREATE VIEW view_country_count AS SELECT country,COUNT(respondent) AS country_count FROM surveyresults GROUP BY country;"
          }
     }
     dataUrl1= "https://data.course77.hasura-app.io/v1/query"
@@ -58,7 +58,8 @@ def get_articles_try():
             "table": "view_country_count",
             "columns":[
                "*"
-            ]
+            ],
+            "order_by":"country"
         }
     }
     dataUrl1= "https://data.course77.hasura-app.io/v1/query"
@@ -73,5 +74,5 @@ def get_articles_try():
 
 @app.route("/")
 def home():
-    return "Hasura Hello World Nalini Suresh"
+    return "Hasura Hello World nalini Suresh"
 
