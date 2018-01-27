@@ -15,7 +15,7 @@ def get_articles_try():
     query = {
         "type": "run_sql",
         "args": {
-            "sql": "CREATE VIEW view_country_count AS SELECT country,COUNT(respondent) AS country_count FROM surveyresults GROUP BY country;"
+            "sql": "CREATE VIEW view_country_count AS SELECT country,COUNT(respondent) AS country_count FROM surveyresults GROUP BY country ORDER BY country;"
          }
     }
     dataUrl1= "https://data.course77.hasura-app.io/v1/query"
