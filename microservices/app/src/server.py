@@ -6,7 +6,7 @@ import requests
 import json
 
 @app.route('/get_country')
-def get_articles_try():
+def get_country_try():
     headers = {
         "Content-Type": "application/json",
         "Authorization": "Bearer d7311342c7ecbfaf056c4965205b134a3a5f59814378fa22"
@@ -73,7 +73,7 @@ def get_articles_try():
     return jsonify(data=data3)
 
 @app.route('/get_professional')
-def get_articles_try():
+def get_professional_try():
     headers = {
         "Content-Type": "application/json",
         "Authorization": "Bearer d7311342c7ecbfaf056c4965205b134a3a5f59814378fa22"
