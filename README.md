@@ -14,5 +14,9 @@ A survey has been done on Stackoverflow users to understand their demographics. 
 - [Git](https://git-scm.com)
 - [Python 3](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installing/) (required only for local development)
 
+## How to deploy it
+
+1. Install hasura CLI
+2. run hasura
 
 
