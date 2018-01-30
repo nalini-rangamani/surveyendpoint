@@ -17,6 +17,32 @@ A survey has been done on Stackoverflow users to understand their demographics. 
 ## How to deploy it
 
 1. Install hasura CLI
-2. run hasura
+2. run hasura quickstart surveydir -hpdf
+3. Pull all files from this repo to surveydir directory.
+4. Do the following:
+$ git add . && git commit -m "Deployment commit"
+$ git push hasura master
+
+After the git push completes:
+
+
+$ hasura microservice list
+You will get output like:
+$ hasura ms list
+USER MS NAME     STATUS      INTERNAL-URL             EXTERNAL-URL
+app              Running     app.course77-user:80     http://app.course77.hasura-app.io
+
+HASURA MS NAME     STATUS      INTERNAL-URL                           EXTERNAL-URL
+platform-sync      Running
+gateway            Running
+notify             Running     notify.course77-hasura:80              http://notify.course77.hasura-app.io
+session-redis      Running     session-redis.course77-hasura:6379
+le-agent           Running
+sshd               Running
+postgres           Running     postgres.course77-hasura:5432
+data               Running     data.course77-hasura:80                http://data.course77.hasura-app.io
+filestore          Running     filestore.course77-hasura:80           http://filestore.course77.hasura-app.io
+auth               Running     auth.course77-hasura:80                http://auth.course77.hasura-app.io
+
 
 
