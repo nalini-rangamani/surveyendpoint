@@ -30,40 +30,22 @@ After the git push completes:
 
 
 $ hasura microservice list
-You will get output like:
-$ hasura ms list
+ From this, you can get the cluster-name. Replace course-77 with this cluster-name.
 
-USER MS NAME     STATUS      INTERNAL-URL             EXTERNAL-URL
+5. do hasura api-console and in the DATA section, create a table surveyresults with the following fields:
+respondent - integer - primary key
+professional - text
+country - text.
 
+6. From https://www.kaggle.com/stackoverflow/so-survey-2017/data copy the survey_results_public.csv file to the project folder. 
 
-app              Running     app.course77-user:80     http://app.course77.hasura-app.io
+7. Open the file,in MS - Excel, delete all columns except respondent, country and professional. Save it as a csv file. Let it be survey results.csv. Open the surveyresults.csv file and delete the header line.
 
+8. $ hasura microservice port-forward postgres -n hasura --local-port 6432 from git bash
 
-
-HASURA MS NAME     STATUS      INTERNAL-URL                           EXTERNAL-URL
-
-
-platform-sync      Running
-
-gateway            Running
-
-
-notify             Running     notify.course77-hasura:80              http://notify.course77.hasura-app.io
-
-session-redis      Running     session-redis.course77-hasura:6379
-
-le-agent           Running
-
-sshd               Running
-
-postgres           Running     postgres.course77-hasura:5432
-
-data               Running     data.course77-hasura:80                http://data.course77.hasura-app.io
-
-filestore          Running     filestore.course77-hasura:80           http://filestore.course77.hasura-app.io
-
-auth               Running     auth.course77-hasura:80                http://auth.course77.hasura-app.io
-
+9. From CMD , go to the project directory. 
+psql -h localhost -p 6432 -d hasuradb -U admin -c "copy surveyresults from STDIN with delimiter as ',';" surveyresults.csv.
+This will load the data to the table.
 
 https://app.course77.hasura-app.io/get_country will return the different countries and their aggregate count. This can be used by the frontend to plot a graph.
 
