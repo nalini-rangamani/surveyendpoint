@@ -51,4 +51,10 @@ https://app.course77.hasura-app.io/get_country will return the different countri
 
 https://app.course77.hasura-app.io/get_professional will return the different kind of professionals and their aggregate count. This can be used by the frontend to plot a graph.
 
+## How to build on top of this?
+This webhook is written in Python using the Flask framework. The source code lies in microservices/app/src directory. server.py is where you want to start modifying the code.
 
+If you are using any extra python packages, just add them to microservices/app/src/requirements.txt and they will be "pip installed" during the Docker build.
+
+## Support
+If you happen to get stuck anywhere, please mail me at nalini.rangamani@gmail.com. 
