@@ -65,4 +65,8 @@ filestore          Running     filestore.course77-hasura:80           http://fil
 auth               Running     auth.course77-hasura:80                http://auth.course77.hasura-app.io
 
 
+https://app.course77.hasura-app.io/get_country will return the different countries and their aggregate count. This can be used by the frontend to plot a graph.
+
+https://app.course77.hasura-app.io/get_professional will return the different kind of professionals and their aggregate count. This can be used by the frontend to plot a graph.
+
 
