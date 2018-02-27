@@ -5,8 +5,11 @@
 ## What is it ?
 Hasura project which gives endpoints to analyse the stackoverflow survey results
 
+## Contributors
+Nalini Rangamani.
+
 ## How it Works
-A survey has been done on Stackoverflow users to understand their demographics. This data is a CSV file. The relevant columns from it are loaded into a postgres database. The endpoints analyse the data and return the data which can be plotted as graphs by the frontend. This runs in a hasura cluster and uses hasura dat apis 
+A survey has been done on Stackoverflow users to understand their demographics. This data is a CSV file. The relevant columns from it are loaded into a postgres database. The endpoints analyse the data and return the data which can be plotted as graphs by the frontend. This runs in a hasura cluster and uses hasura data apis. 
 
 ## What does it use
 
