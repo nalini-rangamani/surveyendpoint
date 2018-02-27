@@ -3,7 +3,7 @@
 
 
 ## What is it ?
-Hasura project which gives endpoints to analyse the stackoverflow survey results
+Hasura project which gives endpoints to analyse the stackoverflow survey results which can be easily used to plot graphs using Dash from Plotly
 
 ## Contributors
 Nalini Rangamani.
