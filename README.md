@@ -1,4 +1,4 @@
-# Stack Overflow Survey Data Analysis
+# Stack Overflow Survey Data Analysis to Plot Graphs Using Dash from Plotly
 
 
 
@@ -9,7 +9,7 @@ Hasura project which gives endpoints to analyse the stackoverflow survey results
 Nalini Rangamani.
 
 ## How it Works
-A survey has been done on Stackoverflow users to understand their demographics. This data is a CSV file. The relevant columns from it are loaded into a postgres database. The endpoints analyse the data and return the data which can be plotted as graphs by the frontend. This runs in a hasura cluster and uses hasura data apis. 
+A survey has been done on Stackoverflow users to understand their demographics.Data like their profession, their country of residence, employment statushave been collected. This data is a CSV file. The relevant columns from it are loaded into a postgres database. The endpoints analyse the data and return the data which can be plotted as graphs by the frontend. This runs in a hasura cluster and uses hasura data apis. 
 
 ## What does it use
 
@@ -50,9 +50,9 @@ country - text.
 psql -h localhost -p 6432 -d hasuradb -U admin -c "copy surveyresults from STDIN with delimiter as ',';" surveyresults.csv.
 This will load the data to the table.
 
-https://app.course77.hasura-app.io/get_country will return the different countries and their aggregate count. This can be used by the frontend to plot a graph.
+https://app.course77.hasura-app.io/get_country will return the different countries and their aggregate count. This can be used by the frontend to plot different kinds of graphs.
 
-https://app.course77.hasura-app.io/get_professional will return the different kind of professionals and their aggregate count. This can be used by the frontend to plot a graph.
+https://app.course77.hasura-app.io/get_professional will return the different kind of professionals and their aggregate count. This can be used by the frontend to plot different kinds of graphs.
 
 ## How to build on top of this?
 This webhook is written in Python using the Flask framework. The source code lies in microservices/app/src directory. server.py is where you want to start modifying the code.
